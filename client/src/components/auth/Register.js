@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { AuthConsumer } from '../../providers/AuthProvider';
 
 const Register = ({ handleRegister, history }) => {
-  const [user, setUser] = useState({ email: "", password: "", passwordConfirmation: ""})
+  const [user, setUser] = useState({ email: "", first_name: "", last_name: "", role: "reg", password: "", passwordConfirmation: ""})
   
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -22,6 +22,22 @@ const Register = ({ handleRegister, history }) => {
           onChange={(e) => setUser({ ...user, email: e.target.value })}
 
           placeholder="Email"
+          required
+        />
+        <input
+          name="first_name"
+          value={user.first_name}
+          onChange={(e) => setUser({ ...user, first_name: e.target.value })}
+
+          placeholder="First Name"
+          required
+        />
+        <input
+          name="last_name"
+          value={user.last_name}
+          onChange={(e) => setUser({ ...user, last_name: e.target.value })}
+
+          placeholder="Last Name"
           required
         />
         <input
