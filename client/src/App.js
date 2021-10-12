@@ -6,6 +6,8 @@ import Nomatch from './components/shared/Nomatch';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import Lists from './components/lists/Lists';
+import ShowList from './components/lists/ShowList';
 
 const App = () => (
   <>
@@ -15,6 +17,8 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
+        <ProtectedRoute exact path="/lists" component={Lists} />
+        <ProtectedRoute exact path="/lists/:id" component={ShowList} />
         <Route component={Nomatch} />
       </Switch>
     </FetchUser>

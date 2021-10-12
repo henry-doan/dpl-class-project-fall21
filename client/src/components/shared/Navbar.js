@@ -8,6 +8,11 @@ const Navbar = ({ user, handleLogout, history }) => {
       // links for when the user is login in
       return (
         <>
+          <Link to="/lists">
+            <li>
+              Lists
+            </li>
+          </Link>
           <li onClick={() => handleLogout(history)}>
             Logout
           </li>

@@ -1,24 +1,39 @@
-# README
+Grocery List
+User 
+  Profile 
+lists 
+  title
+  desc
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  create_at
 
-Things you may want to cover:
+items
+  name
+  desc
 
-* Ruby version
+notes 
+  body
 
-* System dependencies
+User has many lists
+list has many items, list belongs to a user 
+items has many notes, item belongs to a list 
+notes belongs to a item
 
-* Configuration
 
-* Database creation
+dr 
+patient
 
-* Database initialization
+appointment
+rails g model apppointment ... ... dr:belongs_to patient:belongs_to
 
-* How to run the test suite
+dr model
+dr has many app
+dr hasmany patient thr app
 
-* Services (job queues, cache servers, search engines, etc.)
+patient model
+patient has many app 
+patient has many dr thr app 
 
-* Deployment instructions
-
-* ...
+appointment model
+app belongs to dr
+app belongs to patient
