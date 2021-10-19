@@ -10,6 +10,7 @@ lists
 items
   name
   desc
+  bought boolean
 
 notes 
   body
