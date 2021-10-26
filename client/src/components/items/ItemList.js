@@ -1,7 +1,7 @@
 import { ItemConsumer } from '../../providers/ItemProvider';
 import { useEffect } from 'react';
-import { Grid, Card, Image, Button, Icon } from 'semantic-ui-react';
-import ItemBought from './ItemBought';
+import { Grid } from 'semantic-ui-react';
+import ItemShow from './ItemShow';
 
 const ItemList = ({ listId, getItems, items, deleteItem }) => {
 
@@ -14,36 +14,7 @@ const ItemList = ({ listId, getItems, items, deleteItem }) => {
       <h1>Items</h1>
       <Grid columns={3} divided stackable>
         { items.map(i => 
-          <Grid.Column>
-            <Card>
-              <Image src={i.img} wrapped ui={false} />
-              <Card.Content>
-                <Card.Header>{i.name}</Card.Header>
-                <Card.Description>
-                  {i.desc}
-                  <br />
-                  <ItemBought {...i} listId={listId} />
-                </Card.Description>
-              </Card.Content>
-              <Card.Content extra>
-                <Grid columns={3}>
-                  <Grid.Column>
-                    <a>
-                      Notes
-                    </a>
-                  </Grid.Column>
-                  <Grid.Column>
-
-                  </Grid.Column>
-                  <Grid.Column>
-                    <Button icon color='red' onClick={() => deleteItem(listId, i.id)}>
-                      <Icon name='trash alternate' />
-                    </Button>
-                  </Grid.Column>
-                </Grid>
-              </Card.Content>
-            </Card>
-          </Grid.Column> 
+          <ItemShow {...i} listId={listId} deleteItem={deleteItem} />
         )}
       </Grid>
     </>

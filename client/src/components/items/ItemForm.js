@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ItemConsumer } from '../../providers/ItemProvider';
 
-const ItemForm = ({ addItem, listId, updateItem, name, desc, id, img }) => {
+const ItemForm = ({ addItem, listId, updateItem, name, desc, id, img, setOpen }) => {
   const [item, setItem] = useState({ name: '', desc: '', img: '' })
 
   useEffect( () => {
@@ -14,6 +14,7 @@ const ItemForm = ({ addItem, listId, updateItem, name, desc, id, img }) => {
     e.preventDefault()
     if (id) {
       updateItem(listId, id, item)
+      setOpen(false)
     } else {
       addItem(listId, item)
     }
